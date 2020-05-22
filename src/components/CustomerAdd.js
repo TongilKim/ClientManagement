@@ -52,7 +52,8 @@ class CustomerAdd extends Component {
         this.setState(nextState);
     }
     addCustomer = () => {
-        const url = '/api/customers';
+        const requestUrl = 'https://clientmanagement-server.herokuapp.com';
+        const url = requestUrl + '/api/customers';
         const formData = new FormData();
         formData.append('imageUploaded', this.state.file); // image byte data
         formData.append('name', this.state.userName);

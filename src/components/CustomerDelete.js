@@ -8,7 +8,8 @@ export default class CustomerDelete extends Component {
         }
     }
     deleteCustomer(id) {
-        const url = '/api/customers/' + id;
+        const requestUrl = 'https://clientmanagement-server.herokuapp.com';
+        const url = requestUrl + '/api/customers/' + id;
         fetch(url, {
             method: 'DELETE'
         });
