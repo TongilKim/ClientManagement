@@ -108,7 +108,8 @@ class App extends Component {
   }
   // method for calling server
   callApi = async () => {
-    const response = await fetch('https://clientmanagement-server.herokuapp.com//api/customers');
+    const requestUrl = 'https://clientmanagement-server.herokuapp.com';
+    const response = await fetch(`${requestUrl}/api/customers`);
     const data = await response.json();
     return data;
   }
