@@ -85,6 +85,16 @@ class App extends Component {
       searchKeyword: ''
     }
   }
+
+  componentDidMount() {
+    // set timer to keep run progress method every 0.02 sec.
+    this.timer = setInterval(this.progress, 20);
+
+    //Calling api from server
+    this.callApi()
+      .then(res => this.setState({ customers: res }))
+      .catch(err => console.log(err));
+  }
   stateRefresh = () => {
     this.setState({
       customers: '',
@@ -96,18 +106,9 @@ class App extends Component {
       .then(res => this.setState({ customers: res }))
       .catch(err => console.log(err));
   }
-  componentDidMount() {
-    // set timer to keep run progress method every 0.02 sec.
-    this.timer = setInterval(this.progress, 20);
-
-    //Calling api from server
-    this.callApi()
-      .then(res => this.setState({ customers: res }))
-      .catch(err => console.log(err));
-  }
   // method for calling server
   callApi = async () => {
-    const response = await fetch('/api/customers');
+    const response = await fetch('https://clientmanagement-server.herokuapp.com/api/customers');
     const data = await response.json();
     return data;
   }
