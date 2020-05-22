@@ -7,13 +7,15 @@ export default class CustomerDelete extends Component {
             modalOpen: false
         }
     }
-    deleteCustomer(id) {
+    deleteCustomer = (id) => {
+
         const requestUrl = 'https://clientmanagement-server.herokuapp.com';
         const url = requestUrl + '/api/customers/' + id;
         fetch(url, {
             method: 'DELETE'
         });
-        this.props.stateRefresh();
+        window.location.reload();
+
     }
     handleClickDelete = () => {
         this.setState({
@@ -30,7 +32,7 @@ export default class CustomerDelete extends Component {
         return (
             <div>
                 <Button size="small" variant="contained" color="secondary" onClick={this.handleClickDelete}>Delete</Button>
-                <Dialog open={this.state.modalOpen} onClost={this.handleClickClose}>
+                <Dialog open={this.state.modalOpen} onClose={this.handleClickClose}>
                     <DialogTitle onClose={this.handleClickClose}>
                         Delete
                     </DialogTitle>
