@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { TableRow, TableCell } from '@material-ui/core'
 import CustomerDelete from './CustomerDelete'
+
 export default class Customer extends Component {
     render() {
         return (

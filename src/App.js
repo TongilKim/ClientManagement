@@ -20,7 +20,10 @@ const styles = theme => ({
     marginRight: 18
   },
   tableHead: {
-    fontSize: '1.0rem'
+    fontSize: '1.0rem',
+    backgroundColor: '#3f51b5',
+    color: 'white',
+
   },
   progress: {
     margin: theme.spacing(2)
@@ -28,6 +31,7 @@ const styles = theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+
   title: {
     flexGrow: 1,
     display: 'none',
@@ -170,13 +174,10 @@ class App extends Component {
         </AppBar>
         {/*  End of Search bar Section */}
 
-        {/* Add Button (the ACTUALLY button property is in 'CustomerAdd' component) */}
-        <div style={{ marginTop: 15, marginButtom: 15, display: 'flex', justifyContent: 'center' }}>
-          <CustomerAdd stateRefresh={this.stateRefresh} />
-        </div>
+
         <Paper >
-          <Table className={styles.table}>
-            <TableHead>
+          <Table>
+            <TableHead className={styles.table}>
               <TableRow>
                 {/* Populate the table header names */}
                 {cellList.map(c => {
@@ -198,6 +199,10 @@ class App extends Component {
           </Table>
         </Paper>
 
+        {/* Add Button (the ACTUALLY button property is in 'CustomerAdd' component) */}
+        <div style={{ marginTop: 15, marginButtom: 15, display: 'flex', justifyContent: 'center' }}>
+          <CustomerAdd stateRefresh={this.stateRefresh} />
+        </div>
       </div>
     );
   }
